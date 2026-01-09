@@ -1,84 +1,25 @@
-using System;
-using System.Collections.Generic;
+# Student Management System
 
-class Student
-{
-    public int RollNo { get; set; }
-    public string Name { get; set; }
-    public int Marks { get; set; }
-}
+A simple C# console-based application to manage student records.
 
-class StudentManagement
-{
-    static List<Student> students = new List<Student>();
+## Features
+- Add student details
+- View all students
+- Menu-driven interface
+- Uses Object-Oriented Programming
 
-    static void Main()
-    {
-        int choice;
+## Technologies Used
+- C#
+- .NET Console Application
+- Visual Studio
 
-        do
-        {
-            Console.WriteLine("\n===== STUDENT MANAGEMENT SYSTEM =====");
-            Console.WriteLine("1. Add Student");
-            Console.WriteLine("2. View Students");
-            Console.WriteLine("3. Exit");
-            Console.Write("Enter your choice: ");
+## How to Run
+1. Open Visual Studio
+2. Create a Console Application
+3. Replace Program.cs with the given code
+4. Run the application
 
-            choice = Convert.ToInt32(Console.ReadLine());
-
-            switch (choice)
-            {
-                case 1:
-                    AddStudent();
-                    break;
-
-                case 2:
-                    ViewStudents();
-                    break;
-
-                case 3:
-                    Console.WriteLine("Exiting Program...");
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid choice! Try again.");
-                    break;
-            }
-        }
-        while (choice != 3);
-    }
-
-    static void AddStudent()
-    {
-        Student s = new Student();
-
-        Console.Write("Enter Roll Number: ");
-        s.RollNo = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Enter Name: ");
-        s.Name = Console.ReadLine();
-
-        Console.Write("Enter Marks: ");
-        s.Marks = Convert.ToInt32(Console.ReadLine());
-
-        students.Add(s);
-        Console.WriteLine("Student added successfully!");
-    }
-
-    static void ViewStudents()
-    {
-        if (students.Count == 0)
-        {
-            Console.WriteLine("No students available.");
-            return;
-        }
-
-        Console.WriteLine("\n--- Student List ---");
-        foreach (var s in students)
-        {
-            Console.WriteLine($"Roll No: {s.RollNo}, Name: {s.Name}, Marks: {s.Marks}");
-        }
-    }
-}
+## Author
+Shreya Singh
 
 
