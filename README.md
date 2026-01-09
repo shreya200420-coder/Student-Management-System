@@ -1,41 +1,84 @@
-C# Projects
+using System;
+using System.Collections.Generic;
 
-## 📌 Projects Included
+class Student
+{
+    public int RollNo { get; set; }
+    public string Name { get; set; }
+    public int Marks { get; set; }
+}
 
-1. **Calculator**
-   - Performs addition, subtraction, multiplication, and division
+class StudentManagement
+{
+    static List<Student> students = new List<Student>();
 
-2. **ATM Simulation**
-   - Check balance
-   - Deposit money
-   - Withdraw money
+    static void Main()
+    {
+        int choice;
 
-3. **Student Management System**
-   - Stores and displays student details
+        do
+        {
+            Console.WriteLine("\n===== STUDENT MANAGEMENT SYSTEM =====");
+            Console.WriteLine("1. Add Student");
+            Console.WriteLine("2. View Students");
+            Console.WriteLine("3. Exit");
+            Console.Write("Enter your choice: ");
 
-4. **Number Guessing Game**
-   - User guesses a randomly generated number
+            choice = Convert.ToInt32(Console.ReadLine());
 
-5. **In-Memory Web API CRUD**
-   - Demonstrates CRUD operations without database using ASP.NET Web API
+            switch (choice)
+            {
+                case 1:
+                    AddStudent();
+                    break;
 
-## 🛠 Technologies Used
-- C#
-- .NET Framework / .NET Core
-- ASP.NET Web API
-- Visual Studio
+                case 2:
+                    ViewStudents();
+                    break;
 
-## 🎯 Purpose of This Repository
-- Practice C# programming
-- Understand basic logic building
-- Learn GitHub repository management
-- Useful for academic projects and placements
+                case 3:
+                    Console.WriteLine("Exiting Program...");
+                    break;
 
-## 🚀 How to Run
-1. Open the project in **Visual Studio**
-2. Build the solution
-3. Run the application
+                default:
+                    Console.WriteLine("Invalid choice! Try again.");
+                    break;
+            }
+        }
+        while (choice != 3);
+    }
 
-## 👤 Author
-**Shreya Singh**
+    static void AddStudent()
+    {
+        Student s = new Student();
+
+        Console.Write("Enter Roll Number: ");
+        s.RollNo = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter Name: ");
+        s.Name = Console.ReadLine();
+
+        Console.Write("Enter Marks: ");
+        s.Marks = Convert.ToInt32(Console.ReadLine());
+
+        students.Add(s);
+        Console.WriteLine("Student added successfully!");
+    }
+
+    static void ViewStudents()
+    {
+        if (students.Count == 0)
+        {
+            Console.WriteLine("No students available.");
+            return;
+        }
+
+        Console.WriteLine("\n--- Student List ---");
+        foreach (var s in students)
+        {
+            Console.WriteLine($"Roll No: {s.RollNo}, Name: {s.Name}, Marks: {s.Marks}");
+        }
+    }
+}
+
 
